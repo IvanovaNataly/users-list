@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as I from '../../interfaces';
-import {UserService} from '../../services/user.service';
+import { NetService } from '../../services/net.service';
 
 @Component({
   selector: 'app-main',
@@ -10,14 +10,15 @@ import {UserService} from '../../services/user.service';
 export class MainComponent implements OnInit {
   private usersList: Array<I.User>;
 
-  constructor(private userService: UserService) { }
+  constructor(private netService: NetService) { }
 
   ngOnInit() {
-  //   this.userService.getUsers().subscribe(
-  //     data => {
-  //       console.log(data);
-  //     }, error => console.log(error)
-  // );
+    this.netService.getUsers().subscribe(
+      data => {
+        this.usersList = data;
+        console.log(this.usersList);
+      }, error => console.log(error)
+    );
   }
 
 }
