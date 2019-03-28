@@ -1,3 +1,16 @@
-<p>
-  sidebar works!
-</p>
+<nav class="sidenav">
+    <section class="sidenav-content">
+        <section class="nav-group">
+            <ul class="nav-list">
+                <li *ngFor="let user of usersList">
+                    <a class="nav-link">{{user.name }}</a>
+                </li>
+                <!--<li><a class="nav-link">Link 2</a></li>-->
+                <!--<li><a class="nav-link active">Link 3</a></li>-->
+                <!--<li><a class="nav-link">Link 4</a></li>-->
+                <!--<li><a class="nav-link">Link 5</a></li>-->
+                <!--<li><a class="nav-link">Link 6</a></li>-->
+            </ul>
+        </section>
+    </section>
+</nav>
