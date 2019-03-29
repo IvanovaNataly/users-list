@@ -1,12 +1,36 @@
-<form class="form-login" clrForm>
+<form class="form-login">
 
     <div>
-        <label for="userName">Name</label>
-        <input id="userName" type="text">
+        <label for="userName">User Name</label>
+        <input id="userName"
+               type="text"
+               ngModel
+               name="userName"
+               #userName="ngModel"
+               required
+               pattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+        <div *ngIf="userName.touched && !userName.valid" class="alert alert-danger">
+            <div *ngIf="userName.errors.required">Name is required.</div>
+            <div *ngIf="userName.errors.pattern">
+                User Name has to be email.
+            </div>
+        </div>
     </div>
     <div>
         <label for="password">Password</label>
-        <input id="password" type="text">
+        <input id="password"
+               type="password"
+                ngModel
+                name="password"
+                #password="ngModel"
+                required
+                minlength="8">
+        <div *ngIf="password.touched && !password.valid" class="alert alert-danger">
+            <div *ngIf="password.errors.required">Password is required.</div>
+            <div *ngIf="password.errors.minlength">Password has to be minimun {{password.errors.minlength.requiredLength}} characters.</div>
+        </div>
     </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
 
 </form>
