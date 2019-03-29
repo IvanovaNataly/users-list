@@ -8,12 +8,16 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { MainComponent } from './views/main/main.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { ContentAreaComponent } from './components/content-area/content-area.component';
+import { LoginComponent } from './views/login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    SidebarComponent
+    SidebarComponent,
+    ContentAreaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
