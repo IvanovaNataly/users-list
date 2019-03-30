@@ -7,7 +7,48 @@
 
         <app-sidebar [usersList]="usersList"></app-sidebar>
         <div class="content-area">
+            <form [formGroup]="form">
+                <div>
+                    <label for="name">Name</label>
+                    <input formControlName="name"
+                            id="name"
+                            type="text"/>
+                    <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
+                       Name is required.
+                    </div>
+                </div>
+                <div>
+                    <label for="username">User Name</label>
+                    <input formControlName="username"
+                            id="username"
+                           type="text"/>
+                    <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
+                            User Name is required.
+                    </div>
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input formControlName="email"
+                            id="email"
+                           type="text"/>
+                    <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+                        <div *ngIf="email.errors.required">Email is required.</div>
+                        <div *ngIf="email.errors.email">This field should be email.</div>
+                    </div>
+                </div>
+                <div>
+                    <div>
+                        <label for="phone">Phone</label>
+                        <input id="phone"
+                               type="text"/>
+                    </div>
+                </div>
 
+                <button type="submit" class="btn btn-primary"
+                        [disabled]="form.invalid">
+                    Add New User
+                </button>
+            </form>
         </div>
     </div>
 </div>

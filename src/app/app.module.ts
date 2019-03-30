@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { ClarityModule } from '@clr/angular';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -24,7 +24,8 @@ import { LoginComponent } from './views/login/login.component';
         AppRoutingModule,
         HttpClientModule,
         ClarityModule,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ],
     providers: [
         HttpClient
