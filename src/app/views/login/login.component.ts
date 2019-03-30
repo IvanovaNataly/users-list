@@ -13,7 +13,7 @@ export class LoginComponent {
 
     onSubmit(loginForm) {
       if (loginForm.valid) {
-          this.router.navigate(['/users-list']);
+          this.router.navigate(['/user-list']);
       }
       else console.log('unvalid');
     }

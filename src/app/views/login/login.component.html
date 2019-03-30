@@ -7,10 +7,10 @@
                name="userName"
                #userName="ngModel"
                required
-               pattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/>
+                email/>
         <div *ngIf="userName.touched && !userName.valid" class="alert alert-danger">
             <div *ngIf="userName.errors.required">Name is required.</div>
-            <div *ngIf="userName.errors.pattern">
+            <div *ngIf="userName.errors.email">
                 User Name has to be email.
             </div>
         </div>
