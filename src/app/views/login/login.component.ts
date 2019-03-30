@@ -1,23 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
     private agreementNotSubmitted;
 
-    constructor() { }
-
-    ngOnInit() {
-    }
+    constructor(private router: Router) { }
 
     onSubmit(loginForm) {
       if (loginForm.valid) {
-          console.log(loginForm);
+          this.router.navigate(['/users-list']);
       }
-      else console.log(loginForm.controls.agreement);
+      else console.log('unvalid');
     }
 
     onBtnSubmit(loginForm) {
