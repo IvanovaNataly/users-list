@@ -23,8 +23,10 @@
                             id="username"
                            type="text"/>
                     <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
-                            User Name is required.
+                        <div *ngIf="username.errors.required">User Name is required.</div>
+                        <div *ngIf="username.errors.cannotContainSpace">User Name should not containe space.</div>
                     </div>
+
                 </div>
                 <div>
                     <label for="email">Email</label>

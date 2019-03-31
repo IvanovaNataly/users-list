@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import * as I from '../../interfaces';
 import { NetService } from '../../services/net.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { NewUserValidators } from './newUser.validators';
 
 @Component({
     selector: 'app-main',
@@ -13,7 +14,11 @@ export class MainComponent implements OnInit {
     form = new FormGroup({
         name: new FormControl('', Validators.required),
         username: new FormControl('', Validators.required),
-        email: new FormControl('', [Validators.required, Validators.email]),
+        email: new FormControl('', [
+            Validators.required,
+            Validators.email,
+            NewUserValidators.cannotContainSpace
+        ]),
         phone: new FormControl()
     });
     name = this.form.get('name');
